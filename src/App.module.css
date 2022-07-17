@@ -12,3 +12,9 @@ div.content{
   flex: 1;
   width: 46rem; /* 736px */
 }
+
+@media (max-width:620px){
+  div.content{
+    width: 80%;
+  }
+}

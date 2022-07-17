@@ -1,0 +1,88 @@
+div.task{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  flex: 1;
+
+  min-height: 4.5rem; /* 72px */
+  padding: 1rem;  /* 16px */
+  border-radius: 8px;
+  gap: 0.75rem; /* 12px */
+
+  background: var(--gray-500);
+
+  font-size: 0.875rem; /* 14px */
+  line-height: 140%;
+}
+
+div.task p{
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.225rem; /* 19.6px */
+  color: var(--gray-100);
+
+  width: 39.5rem; /* 632px */
+}
+
+div.task label.check{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.09rem; /* 17.44px */
+  height: 1.09rem;  /* 17.44px */
+}
+
+div.task label.check input{
+  height: 0;
+  width: 0;
+}
+
+div.task label.check span{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--blue);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.task label.check span:hover{
+  border: 2px solid var(--blue-dark);
+  opacity: 0.75;
+}
+
+div.task label.check input:checked + span{
+  background: var(--purple-dark);
+  border: 0;
+}
+
+div.task label.check input:checked + span .check{
+  visibility: visible;
+}
+
+div.task label.check input:checked + span:hover{
+  background: var(--purple);
+  opacity: 0.9;
+}
+
+div.task button.trash{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+
+  width: 24px;
+  height: 24px;
+
+  font-size: 16px;
+  border-radius: 4px;
+  color: var(--gray-300);
+}
+
+div.task button.trash:hover{
+  background: var(--gray-400);
+  color: var(--danger);
+  cursor: pointer;
+}

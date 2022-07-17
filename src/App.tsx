@@ -1,8 +1,8 @@
 import './global.css';
-import { Header } from './Header';
+import { Header } from './components/Header';
 import styles from './App.module.css';
-import { NewTask } from './NewTask';
-import { Tasks } from './Tasks';
+import { NewTask } from './components/NewTask';
+import { Tasks } from './components/Tasks';
 
 
 export function App() {

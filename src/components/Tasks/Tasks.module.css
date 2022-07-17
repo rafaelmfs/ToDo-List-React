@@ -62,3 +62,12 @@ section.tasks div.tasksEmpty div.texts{
   font-size: 1rem; /* 16px */
   line-height: 1.4rem; /* 22.4px */
 }
+
+section.tasks ul.tasksList{
+  list-style: none;
+  margin-top: 24px;
+}
+
+section.tasks ul.tasksList li{
+  margin-bottom: 12px;
+}

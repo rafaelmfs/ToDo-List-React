@@ -28,6 +28,15 @@ export function Tasks(){
         <li>
           <Task />
         </li>
+        <li>
+          <Task />
+        </li>
+        <li>
+          <Task />
+        </li>
+        <li>
+          <Task />
+        </li>
       </ul> */}
 
     </section>

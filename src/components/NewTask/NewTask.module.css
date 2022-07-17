@@ -56,3 +56,20 @@ form.newTask button.submit:not(:disabled):hover{
   background: var(--blue);
   cursor: pointer;
 }
+
+@media (max-width:620px){
+  form.newTask{
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  form.newTask input{
+    width: 100%;
+  }
+
+  form.newTask button.submit{
+    width: 25%;
+  }
+
+}
