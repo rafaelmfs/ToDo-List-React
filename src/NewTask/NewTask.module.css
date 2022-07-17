@@ -1,0 +1,40 @@
+form.newTask{
+  display: flex;
+  flex: 1;
+
+  margin-top: -1.68rem; /* -27px */
+}
+
+
+form.newTask input{
+  width: 39.875rem; /* 638px */
+  height: 3.375rem; /* 54px */
+
+  border-radius: 8px;
+  border: 1px solid var(--gray-700);
+  outline: 0;
+  background: var(--gray-400);
+  padding: 1rem; /* 16px */ 
+  margin-right: 10px;
+
+  font-size: 1rem; /* 16px */
+  line-height: 1.4rem; /* 22.4px */
+}
+
+form.newTask button.submit{
+  width: 5.625rem; /* 90px */
+  height: 3.25rem; /* 52px */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 8px;
+  border: 0;
+  padding: 1rem; /* 16px */
+  background: var(--blue-dark);
+
+  font-weight: 700;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.225rem; /* 19.6px */
+  color: var(--gray-100);
+}
