@@ -13,12 +13,19 @@ form.newTask input{
   border-radius: 8px;
   border: 1px solid var(--gray-700);
   outline: 0;
-  background: var(--gray-400);
+  background: var(--gray-500);
   padding: 1rem; /* 16px */ 
   margin-right: 10px;
 
+  color: var(--gray-300);
   font-size: 1rem; /* 16px */
   line-height: 1.4rem; /* 22.4px */
+  transition: 200ms;
+}
+
+form.newTask input:focus{
+  color: var(--gray-200);
+  border: 1px solid var(--purple);
 }
 
 form.newTask button.submit{
@@ -37,4 +44,15 @@ form.newTask button.submit{
   font-size: 0.875rem; /* 14px */
   line-height: 1.225rem; /* 19.6px */
   color: var(--gray-100);
+  transition: 400ms;
+}
+
+form.newTask button.submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+form.newTask button.submit:not(:disabled):hover{
+  background: var(--blue);
+  cursor: pointer;
 }
