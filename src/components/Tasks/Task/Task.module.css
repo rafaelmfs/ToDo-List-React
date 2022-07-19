@@ -10,6 +10,25 @@ div.task{
   gap: 0.75rem; /* 12px */
 
   background: var(--gray-500);
+  border: 1px solid var(--gray-400);
+
+  font-size: 0.875rem; /* 14px */
+  line-height: 140%;
+}
+
+div.taskCompleted{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  flex: 1;
+
+  min-height: 4.5rem; /* 72px */
+  padding: 1rem;  /* 16px */
+  border-radius: 8px;
+  gap: 0.75rem; /* 12px */
+
+  background: var(--gray-500);
+  border: 1px solid var(--gray-500);
 
   font-size: 0.875rem; /* 14px */
   line-height: 140%;
@@ -17,18 +36,24 @@ div.task{
 
 div.task p{
   font-size: 0.875rem; /* 14px */
-  line-height: 1.225rem; /* 19.6px */
   color: var(--gray-100);
 
   width: 39.5rem; /* 632px */
 }
 
+div.taskCompleted p{
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.225rem; /* 19.6px */
+  color: var(--gray-300);
+
+  width: 39.5rem; /* 632px */
+  text-decoration: line-through;
+}
+
 div.task label.check{
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-  width: 1.09rem; /* 17.44px */
-  height: 1.09rem;  /* 17.44px */
 }
 
 div.task label.check input{
@@ -37,8 +62,8 @@ div.task label.check input{
 }
 
 div.task label.check span{
-  width: 100%;
-  height: 100%;
+  width: 1rem; /* 17.44px */
+  height: 1rem;  /* 17.44px */
   border-radius: 50%;
   border: 2px solid var(--blue);
 
