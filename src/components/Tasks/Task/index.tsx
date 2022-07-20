@@ -2,7 +2,6 @@ import { Check, Trash } from 'phosphor-react';
 import { ITask } from '../../../interfaces/ITask';
 import styles from './Task.module.css';
 import classNames from 'classnames'
-import { useState } from 'react';
 
 interface TaskProps {
   task: ITask;

@@ -1,6 +1,5 @@
 import { PlusCircle } from "phosphor-react";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
-import { ITask } from "../../../interfaces/ITask";
 import styles from "./NewTask.module.css";
 
 interface NewTaskProps {

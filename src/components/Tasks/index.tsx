@@ -1,5 +1,4 @@
-import { PlusCircle } from 'phosphor-react';
-import { FormEvent, useState } from 'react';
+import {  useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ITask } from '../../interfaces/ITask'
 import { Clipboard } from './Clipboard'
