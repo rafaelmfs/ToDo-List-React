@@ -59,6 +59,7 @@ div.task label.check{
 div.task label.check input{
   height: 0;
   width: 0;
+  transform:translateX(-100vw)
 }
 
 div.task label.check span{
