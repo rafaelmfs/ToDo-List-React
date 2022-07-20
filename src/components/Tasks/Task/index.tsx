@@ -6,24 +6,25 @@ import { useState } from 'react';
 
 interface TaskProps {
   task: ITask;
-  handleCompleted: (idTaskCompleted: string) => void
+  handleCompleted: (taskCompleted: ITask) => void;
+  handleDelete: (task: ITask) => void
 }
 
-export function Task({task, handleCompleted}: TaskProps){
-
-  const [isCompleted, setIsCompleted] = useState(task.completed);
+export function Task({task, handleCompleted, handleDelete}: TaskProps){
 
   function handleCheckCompleted(){
-    setIsCompleted((state) => !state);
-    handleCompleted(task.id);
+    const taskCompleted: ITask = {
+      id: task.id,
+      content: task.content,
+      completed: !task.completed
+    }
+    handleCompleted(taskCompleted);
   }
 
   return(
-    <div 
-      className={classNames(styles.task, {
-        [styles.taskCompleted]: isCompleted,
-      })}
-      onClick={(event) => console.log(task)}>
+    <div className={classNames(styles.task, {
+        [styles.taskCompleted]: task.completed,
+      })}>
       <label className={styles.check}>
         <input 
           type="checkbox" 
@@ -41,6 +42,7 @@ export function Task({task, handleCompleted}: TaskProps){
       <button 
         title='Excluir' 
         className={styles.trash}
+        onClick={() => handleDelete(task)}
       >
         <Trash weight='bold'/>
       </button>

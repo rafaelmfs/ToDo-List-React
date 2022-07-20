@@ -1,5 +1,5 @@
 import { PlusCircle } from "phosphor-react";
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 import { ITask } from "../../../interfaces/ITask";
 import styles from "./NewTask.module.css";
 
@@ -18,6 +18,15 @@ export function NewTask({createNewTask}: NewTaskProps){
     setTaskContent('');
   }
 
+  function handleCreateWithInputEmpty(event: InvalidEvent<HTMLInputElement>){
+    event.target.setCustomValidity('Digite uma tarefa!');
+  }
+
+  function handleInputTaskChange(event: ChangeEvent<HTMLInputElement>){
+    event.target.setCustomValidity('');
+    setTaskContent(event.target.value)
+  }
+
   return(
     <form className={styles.newTask} onSubmit={handleCreateTask}>
       <input 
@@ -25,7 +34,9 @@ export function NewTask({createNewTask}: NewTaskProps){
         name="taskContent" 
         placeholder="Adicione uma nova tarefa" 
         value={taskContent}
-        onChange={(event) => setTaskContent(event.target.value)}
+        required
+        onChange={handleInputTaskChange}
+        onInvalid={handleCreateWithInputEmpty}
       />
       <button className={styles.submit}>
         <span>Criar</span>  

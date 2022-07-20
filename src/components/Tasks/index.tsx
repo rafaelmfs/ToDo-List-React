@@ -1,5 +1,6 @@
 import { PlusCircle } from 'phosphor-react';
 import { FormEvent, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { ITask } from '../../interfaces/ITask'
 import { Clipboard } from './Clipboard'
 import { NewTask } from './NewTask';
@@ -10,23 +11,36 @@ import styles from './Tasks.module.css'
 export function Tasks(){
 
   const [taskList, setTaskList] = useState<ITask[]>([]); 
+  const [totalCompletedTasks, setTotalCompletedTasks] = useState(0);
   const isTaskListEmpty = taskList.length == 0;
 
   function handleCreateNewTask(newTaskContent: string){
     const newTask: ITask = {
-      id: newTaskContent.trim(),
+      id: uuidv4(),
       content: newTaskContent,
       completed: false,
     }
     setTaskList([...taskList, newTask]);
   }
 
-  function handleCompleted(idTaskCompleted: string){
-    taskList.forEach((task) => {
-      if(task.id === idTaskCompleted){
-        task.completed = !task.completed;
-      }
+  function handleCompleted(updatedTask: ITask){
+    const index = taskList.findIndex(taskItem => taskItem.id === updatedTask.id );
+    setTaskList(state => {
+      return [...state.slice(0, index), updatedTask, ...state.slice(index+1)]
+    });
+    setTotalCompletedTasks(state => (
+      updatedTask.completed ? state + 1 : state - 1
+    ));
+  }
+
+  function handleDelete(taskDeleted: ITask){
+    const updatedTaskList = taskList.filter( taskItem => {
+      return taskItem.id !== taskDeleted.id;
     })
+    setTotalCompletedTasks(state => (
+      taskDeleted.completed ? state - 1 : state
+    ));
+    setTaskList([...updatedTaskList]);
   }
 
   return (
@@ -37,11 +51,13 @@ export function Tasks(){
         <header>
           <div className={styles.createdTasks}>
             <strong>Tarefas criadas</strong>
-            <span>0</span>
+            <span>{taskList.length}</span>
           </div>
           <div className={styles.completedTasks}>
             <strong>Concluídas</strong>
-            <span>0</span>
+            <span>
+              {taskList.length === 0 ? '0' : `${totalCompletedTasks} de ${taskList.length}`}
+            </span>
           </div>
         </header>
 
@@ -57,11 +73,12 @@ export function Tasks(){
 
           ) : (
             <ul className={styles.tasksList}>
-              {taskList.map( task => (
-                <li key={task.id}>
+              {taskList.map( taskItem => (
+                <li key={taskItem.id}>
                   <Task 
-                    task={task} 
+                    task={taskItem} 
                     handleCompleted={handleCompleted}
+                    handleDelete={handleDelete}
                   />
                 </li>
               ))}
