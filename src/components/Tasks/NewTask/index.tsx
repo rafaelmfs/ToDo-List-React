@@ -17,7 +17,7 @@ export function NewTask({createNewTask}: NewTaskProps){
     setTaskContent('');
   }
 
-  function handleCreateWithInputEmpty(event: InvalidEvent<HTMLInputElement>){
+  function handleCreateWithEmptyInput(event: InvalidEvent<HTMLInputElement>){
     event.target.setCustomValidity('Digite uma tarefa!');
   }
 
@@ -35,7 +35,7 @@ export function NewTask({createNewTask}: NewTaskProps){
         value={taskContent}
         required
         onChange={handleInputTaskChange}
-        onInvalid={handleCreateWithInputEmpty}
+        onInvalid={handleCreateWithEmptyInput}
       />
       <button className={styles.submit}>
         <span>Criar</span>  
