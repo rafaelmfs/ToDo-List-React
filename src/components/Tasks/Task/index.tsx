@@ -24,10 +24,9 @@ export function Task({task, handleCompleted, handleDelete}: TaskProps){
     <div className={classNames(styles.task, {
         [styles.taskCompleted]: task.completed,
       })}>
-      <label className={styles.check}>
+      <label className={styles.check} title="Concluída ?">
         <input 
           type="checkbox" 
-          title="Concluída ?" 
           id="check"
           onChange={handleCheckCompleted}
         />

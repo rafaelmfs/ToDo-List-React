@@ -11,7 +11,7 @@ export function Tasks(){
 
   const [taskList, setTaskList] = useState<ITask[]>([]); 
   const [totalCompletedTasks, setTotalCompletedTasks] = useState(0);
-  const isTaskListEmpty = taskList.length == 0;
+  const isTaskListEmpty = taskList.length === 0;
 
   function handleCreateNewTask(newTaskContent: string){
     const newTask: ITask = {
