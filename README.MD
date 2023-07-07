@@ -2,7 +2,7 @@
 
 ![Capa](https://user-images.githubusercontent.com/80429145/179877030-2b56e54c-e5f4-4e76-9e98-bef6274e46d4.png)
 
-### Projeto para aprendizado do curso Ignite na trilha atualizada de ReactJS
+### Projeto de estudo de ReactJS
 
 #### Feito com
 
